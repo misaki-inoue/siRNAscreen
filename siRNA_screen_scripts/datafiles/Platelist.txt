@@ -1,0 +1,7 @@
+Filename	Plate	Replicate
+Par1.txt	1	1
+Par2.txt	1	2
+Par3.txt	1	3
+Res1.txt	2	1
+Res2.txt	2	2
+Res3.txt	2	3
