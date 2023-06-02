@@ -1,0 +1,7 @@
+Filename	Plate	Replicate
+Mut1.txt	1	1
+Mut2.txt	1	2
+Mut3.txt	1	3
+Res1.txt	2	1
+Res2.txt	2	2
+Res3.txt	2	3
