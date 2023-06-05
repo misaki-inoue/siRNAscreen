@@ -6,28 +6,18 @@ if (!require("BiocManager", quietly = TRUE))
 BiocManager::install("cellHTS2")
 library(cellHTS2)
 
-remove.packages("rlang")
-install.packages("rlang")
-
-remove.packages("vctrs")
-install.packages("vctrs")
-
-
-BiocManager::install("vsn")
-library("vsn")
-
-library("cellHTS2")
 # namespace ‘vctrs’ 0.4.2 is already loaded, but >= 0.5.0 is required 
 # ^ if this error shows up, uninstall package and re-install
 
 ##### Importing data #####
 
-setwd("C:/Users/misak/Desktop/ICR/siRNA_myc/datafiles")
+setwd("C:/Users/misak/Desktop/ICR/siRNAscreen/siRNA_screen_validation_scripts/datafiles") 
+  # siRNAscreen is on GitHub repository
 
 # create cellHTS object calld "x"
 x <- readPlateList(
   filename="Platelist.txt",
-  name="MCF10Aviab",
+  name="SUM149viab",
   path="./"
 )
 
@@ -93,21 +83,11 @@ write.table(
 # Summarise the Z-scores as medians
 xsc <- summarizeReplicates(
   xsc,
-  summary="mean"
+  summary="median"
 )
 
 
 ##### Create report #####
-
-# Write the cellHTS top table providing a summary of the screen
-summary_info <- getTopTable(
-  list(
-    "raw"=x,
-    "normalized"=xn,
-    "scored"=xsc
-  ),
-  file="TopTable.txt"
-)
 
 # configure the HTML report created by writeReport()
 setSettings(
@@ -158,7 +138,7 @@ combinedz <- data.frame(
 
 write.table(
   combinedz,
-  "zscores.txt",
+  "summarized_zscores.txt",
   col.names=TRUE,
   sep="\t",
   quote=FALSE,
