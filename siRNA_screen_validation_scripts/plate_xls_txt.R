@@ -56,6 +56,10 @@ res2 <- res2 %>% select(Luminescence) %>% mutate(Well = wellid, Status = "Res1")
 res3 <- res3 %>% select(Luminescence) %>% mutate(Well = wellid, Status = "Res1") %>%
   select(Status, Well, Luminescence)
 
+mut1 <- mut1 %>% mutate(Status = "Mut1") %>% select(Status, Well, Luminescence)
+mut2 <- mut2 %>% mutate(Status = "Mut2") %>% select(Status, Well, Luminescence)
+mut3 <- mut3 %>% mutate(Status = "Mut3") %>% select(Status, Well, Luminescence)
+
 
 ## Export as text files into a directory connected to GitHub
 main_dir <- "C:/Users/misak/Desktop/ICR/siRNAscreen/siRNA_screen_validation_scripts"
